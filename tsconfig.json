@@ -31,7 +31,20 @@
     "moduleResolution": "node" /* Specify how TypeScript looks up a file from a given module specifier. */,
     "baseUrl": "./" /* Specify the base directory to resolve non-relative module names. */,
     "paths": {
-      "@environment/*": ["./configs/environment/*"]
+      "@environment/*": ["./configs/environment/*"],
+      "@entities/*": ["./src/domain/entities/*"],
+      "@configs/database/*": ["./configs/database/*"],
+      "@domain/repositories/*": ["./src/domain/repositories/*"],
+      "@domain/usecases/*": ["./src/domain/usecases/*"],
+      "@usecases/*": ["./src/application/usecases/*"],
+      "@helpers/*": ["./src/domain/helpers/*"],
+      "@factories/*": ["./src/domain/factories/*"],
+      "@dtos/*": ["./src/application/dtos/*"],
+      "@models/*": ["./src/infrastructure/models/*"],
+      "@mongoose/repositories/*": ["./src/infrastructure/database/mongoose/repositories/*"],
+      "@controllers/*": ["./src/presentation/controllers/*"],
+      "@routes/*": ["./src/infrastructure/routes/*"],
+      "@errors/*": ["./src/domain/errors/*"],
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
