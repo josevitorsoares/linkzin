@@ -1,3 +1,8 @@
 export interface IShortUrlUseCase {
-  execute(url: string): Promise<string>;
+  execute(
+    url: string,
+    options?: {
+      customAlias?: string;
+    },
+  ): Promise<string>;
 }
