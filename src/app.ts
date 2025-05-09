@@ -1,6 +1,5 @@
 import { connectDatabase } from "@configs/database/mongoose.database";
-import { CounterNotFoundError } from "@errors/counter-not-found.error";
-import { UrlNotFoundError } from "@errors/url-not-found.error";
+import { AppError } from "@errors/app-error.error";
 import fastify from "fastify";
 import { urlRoutes } from "./infrastructure";
 
@@ -13,8 +12,8 @@ connectDatabase();
 
 // This is a global error handler for the Fastify app.
 app.setErrorHandler((error, _, reply) => {
-  if (error instanceof UrlNotFoundError || CounterNotFoundError) {
-    reply.status(404).send({
+  if (error instanceof AppError) {
+    reply.status(error.statusCode).send({
       message: error.message,
     });
   }
@@ -24,4 +23,3 @@ app.setErrorHandler((error, _, reply) => {
     error: error.message,
   });
 });
- 
