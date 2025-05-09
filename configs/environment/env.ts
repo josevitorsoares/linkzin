@@ -17,6 +17,8 @@ if (result.error) {
 const envSchema = z.object({
   API_URL: z.string().url(),
   COUNTER_OBJECT_ID: z.string(),
+  MAX_CUSTOM_ALIAS_LENGTH: z.coerce.number().default(15),
+  MIN_CUSTOM_ALIAS_LENGTH: z.coerce.number().default(7),
   DB_CONN_STRING: z.string(),
   DB_NAME: z.string(),
   NODE_ENV: z.enum(["development", "production", "test"]),
@@ -29,7 +31,24 @@ const env = envSchema.parse(process.env, {
   }),
 });
 
-const { API_URL, DB_CONN_STRING, DB_NAME, COUNTER_OBJECT_ID, NODE_ENV, PORT } =
-  env;
+const {
+  API_URL,
+  COUNTER_OBJECT_ID,
+  DB_CONN_STRING,
+  DB_NAME,
+  MAX_CUSTOM_ALIAS_LENGTH,
+  MIN_CUSTOM_ALIAS_LENGTH,
+  NODE_ENV,
+  PORT,
+} = env;
 
-export { API_URL, COUNTER_OBJECT_ID, DB_CONN_STRING, DB_NAME, NODE_ENV, PORT };
+export {
+  API_URL,
+  COUNTER_OBJECT_ID,
+  DB_CONN_STRING,
+  DB_NAME,
+  MAX_CUSTOM_ALIAS_LENGTH,
+  MIN_CUSTOM_ALIAS_LENGTH,
+  NODE_ENV,
+  PORT,
+};
